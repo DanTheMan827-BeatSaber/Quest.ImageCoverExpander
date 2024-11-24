@@ -50,15 +50,19 @@ namespace Hooks {
         }
 
         if(MOD_ENABLED) {
-            static float_t extraWidth = modExtraWidths[""];
+            static float_t extraWidth = []() {
+                auto width = modExtraWidths[""];
 
-            for (auto mod : modloader::get_loaded()) {
-                auto modExtraWidth = modExtraWidths.find(mod.info.id);
+                for (auto mod : modloader::get_loaded()) {
+                    auto modExtraWidth = modExtraWidths.find(mod.info.id);
 
-                if (modExtraWidth != modExtraWidths.end() && modExtraWidths[mod.info.id] > extraWidth) {
-                    extraWidth = modExtraWidths[mod.info.id];
+                    if (modExtraWidth != modExtraWidths.end() && modExtraWidths[mod.info.id] > width) {
+                        width = modExtraWidths[mod.info.id];
+                    }
                 }
-            }
+
+                return width;
+            }();
 
             static float_t xShift = [](){
                 auto const modIds = getModIds();
