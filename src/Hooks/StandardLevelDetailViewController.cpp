@@ -19,7 +19,7 @@
 #include "HMUI/ImageView.hpp"
 #include <cmath>
 
-#define MOD_ENABLED !getModConfig().Active.GetValue()
+#define MOD_ENABLED getModConfig().Active.GetValue()
 
 namespace Hooks {
     using namespace GlobalNamespace;

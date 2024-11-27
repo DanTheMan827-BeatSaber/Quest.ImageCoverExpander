@@ -19,7 +19,7 @@ MOD_EXPORT_FUNC void setup(CModInfo& info) {
 MOD_EXPORT_FUNC void late_load() {
     il2cpp_functions::Init();
     getModConfig().Init(modInfo);
-    BSML::Register::RegisterMainMenu<ImageCoverExpander::UI::Settings*>("ImageCoverExpander", "Manage settings", "");
+    BSML::Register::RegisterSettingsMenu("ImageCoverExpander", ActivateSettings, false);
 
     Logger.info("Installing hooks...");
     AutoHooks::InstallHooks();

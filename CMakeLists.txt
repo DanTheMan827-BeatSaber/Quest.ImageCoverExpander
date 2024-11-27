@@ -55,8 +55,6 @@ project( imagecoverexpander
 # Set COMPILE_ID for qpm purposes
 set(COMPILE_ID ${CMAKE_PROJECT_NAME})
 
-include(${EXTERN_DIR}/includes/kaleb/shared/cmake/assets.cmake)
-
 # recursively get all src files
 RECURSE_FILES(cpp_file_list ${SOURCE_DIR}/*.cpp)
 RECURSE_FILES(c_file_list ${SOURCE_DIR}/*.c)
@@ -82,5 +80,4 @@ RECURSE_FILES(src_inline_hook_beatsaber_hook_local_extra_cpp ${EXTERN_DIR}/inclu
 target_sources(${COMPILE_ID} PRIVATE ${src_inline_hook_beatsaber_hook_local_extra_c})
 target_sources(${COMPILE_ID} PRIVATE ${src_inline_hook_beatsaber_hook_local_extra_cpp})
 
-add_assets(${COMPILE_ID}-assets STATIC ${CMAKE_CURRENT_LIST_DIR}/assets ${INCLUDE_DIR}/assets.hpp)
-target_link_libraries(${COMPILE_ID} PRIVATE -llog -lz ${COMPILE_ID}-assets)
+target_link_libraries(${COMPILE_ID} PRIVATE -llog -lz)

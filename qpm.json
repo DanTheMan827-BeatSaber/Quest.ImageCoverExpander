@@ -79,11 +79,6 @@
       "additionalData": {}
     },
     {
-      "id": "kaleb",
-      "versionRange": "^0.1.9",
-      "additionalData": {}
-    },
-    {
       "id": "bs-cordl",
       "versionRange": "3700.*",
       "additionalData": {}

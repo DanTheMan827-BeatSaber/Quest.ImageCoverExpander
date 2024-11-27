@@ -80,11 +80,6 @@
         "additionalData": {}
       },
       {
-        "id": "kaleb",
-        "versionRange": "^0.1.9",
-        "additionalData": {}
-      },
-      {
         "id": "bs-cordl",
         "versionRange": "3700.*",
         "additionalData": {}
@@ -186,23 +181,6 @@
     },
     {
       "dependency": {
-        "id": "kaleb",
-        "versionRange": "=0.1.9",
-        "additionalData": {
-          "headersOnly": true,
-          "branchName": "version/v0_1_9",
-          "compileOptions": {
-            "cppFlags": [
-              "-DKALEB_VERSION=\"0.1.9\""
-            ]
-          },
-          "cmake": false
-        }
-      },
-      "version": "0.1.9"
-    },
-    {
-      "dependency": {
         "id": "bs-cordl",
         "versionRange": "=3700.0.0",
         "additionalData": {
@@ -239,25 +217,6 @@
     },
     {
       "dependency": {
-        "id": "fmt",
-        "versionRange": "=11.0.2",
-        "additionalData": {
-          "headersOnly": true,
-          "branchName": "version/v11_0_2",
-          "compileOptions": {
-            "systemIncludes": [
-              "fmt/include/"
-            ],
-            "cppFlags": [
-              "-DFMT_HEADER_ONLY"
-            ]
-          }
-        }
-      },
-      "version": "11.0.2"
-    },
-    {
-      "dependency": {
         "id": "scotland2",
         "versionRange": "=0.1.4",
         "additionalData": {
@@ -283,6 +242,25 @@
         }
       },
       "version": "10.0.0"
+    },
+    {
+      "dependency": {
+        "id": "fmt",
+        "versionRange": "=11.0.2",
+        "additionalData": {
+          "headersOnly": true,
+          "branchName": "version/v11_0_2",
+          "compileOptions": {
+            "systemIncludes": [
+              "fmt/include/"
+            ],
+            "cppFlags": [
+              "-DFMT_HEADER_ONLY"
+            ]
+          }
+        }
+      },
+      "version": "11.0.2"
     }
   ]
 }

@@ -1,50 +1,19 @@
-#include "UI/Settings.hpp"
-#include "bsml/shared/BSML.hpp"
+#include "HMUI/ViewController.hpp"
+#include "HMUI/Touchable.hpp"
+#include "Logger.hpp"
 #include "config.hpp"
-#include "assets.hpp"
 
+void ActivateSettings(HMUI::ViewController* self, bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling){
+    Logger.info("ActivateSettings: {}, {}, {}", firstActivation, addedToHierarchy, screenSystemEnabling);
 
-DEFINE_TYPE(ImageCoverExpander::UI, Settings);
-
-using namespace UnityEngine;
-using namespace GlobalNamespace;
-using namespace ImageCoverExpander;
-
-//this might be stealed from graphictweaks
-void ImageCoverExpander::UI::Settings::DidActivate(bool firstActivation, bool addedToHeirarchy, bool screenSystemDisabling)
-{
     if (!firstActivation)
         return;
 
-    BSML::parse_and_construct(Assets::Settings_bsml, this->get_transform(), this);
+    self->get_gameObject()->AddComponent<HMUI::Touchable*>();
+    auto vertical = BSML::Lite::CreateVerticalLayoutGroup(self);
+    vertical->set_childControlHeight(false);
+    vertical->set_childForceExpandHeight(false);
+    vertical->set_spacing(1);
 
-    //#ifdef HotReload
-    //    fileWatcher->checkInterval = 0.5f;
-    //    fileWatcher->filePath = "/sdcard/bsml/GraphicsTweaks/SettingsView.bsml";
-    //#endif
-};
-
-
-void ImageCoverExpander::UI::Settings::UpdateSettings() {
-    //
-}
-
-
-void ImageCoverExpander::UI::Settings::PostParse() {
-    //
-}
-
-bool ImageCoverExpander::UI::Settings::get_enabledValue() {
-    return getModConfig().Active.GetValue();
-}
-
-void ImageCoverExpander::UI::Settings::set_enabledValue(bool value) {
-    return getModConfig().Active.SetValue(value);
-    //if (value) {
-    //    Logger.info("ImageCoverExpander Set Value True");
-    //    getModConfig().Active.SetValue(true);
-    //} else {
-    //    Logger.info("ImageCoverExpander Set Value False");
-    //    getModConfig().Active.SetValue(false);
-    //}
+    BSML::Lite::AddHoverHint(AddConfigValueToggle(vertical, getModConfig().Active)->get_gameObject(),"Toggles whether the mod is active or not (restart required to take effect)");
 }
