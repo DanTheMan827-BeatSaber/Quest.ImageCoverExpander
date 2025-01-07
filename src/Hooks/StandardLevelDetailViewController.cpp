@@ -120,7 +120,7 @@ namespace Hooks {
             imageView->_skew = 0.0f;
 
             logTransform(imageCoverTransform);
-            // imageView->__Refresh();
+            imageView->__Refresh();
         } else {
             Logger.info("ImageCoverExpander Found Value Set As True, not expanding");
         }
