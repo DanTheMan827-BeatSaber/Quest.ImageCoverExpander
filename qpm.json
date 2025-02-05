@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/QuestPackageManager/QPM.Package/refs/heads/main/qpm.schema.json",
   "version": "0.1.1",
   "sharedDir": "shared",
   "dependenciesDir": "extern",
@@ -40,6 +41,7 @@
         "pwsh ./scripts/pull-tombstone.ps1"
       ]
     },
+    "ndk": "^27.2.12479018",
     "qmodIncludeDirs": [
       "./build",
       "./extern/libs"
@@ -70,7 +72,7 @@
     },
     {
       "id": "bsml",
-      "versionRange": "^0.5.0",
+      "versionRange": "^0.4.48",
       "additionalData": {}
     },
     {
@@ -80,7 +82,7 @@
     },
     {
       "id": "bs-cordl",
-      "versionRange": "4000.*",
+      "versionRange": "4010.*",
       "additionalData": {}
     }
   ]
